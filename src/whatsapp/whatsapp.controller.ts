@@ -23,7 +23,7 @@ export class WhatsappController {
     const challenge = req.query['hub.challenge'];
 
     if (mode && token) {
-      if (mode === 'subscribe' && token === '123456789') {
+      if (mode === 'subscribe' && token === '123456789') { // Replace with your own token
         console.log('WEBHOOK_VERIFIED ✅');
         return res.status(200).send(challenge);
       } else {
@@ -64,7 +64,7 @@ export class WhatsappController {
 
       try {
         const phone_number_id = messageData.metadata.phone_number_id;
-        const token = 'EAAQpPR6wgakBOw8EeSmNtHPwYnh234d7trA26bqPYLfAKqfRryLBZCmg6T2lfDVjTv9NhlQQUhJRxdW6ZCu549BsVxWIFHa57YCett2BB2eJQNli5QlEWOGOxCz5Kes4iX3PzCmdUsB0adkZBSSMQh6tu1ZAav6XEo7ULHycEJvs3F4RJbxiTsuAkfw7D6aEQklEvmN5U6vzFmDZBk0htcGShUhjyWHswvZBwZD';
+        const token = process.env.WHATSAPP_ACCESS_TOKEN; //Create .env file and add your token using this format or create your own format
         
 
         await axios.post(
